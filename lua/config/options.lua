@@ -34,3 +34,6 @@ vim.opt.virtualedit = "block"
 
 --show multiples changes seperately
 vim.opt.inccommand = "split"
+
+-- Save undo history
+vim.o.undofile = true
