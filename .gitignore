@@ -6,10 +6,7 @@ debug
 foo.*
 *.log
 data
-.neoconf.json
 LICENSE
 README.md
 lazylock.json
-lazyvim.json
-stylua.toml
 pack/
