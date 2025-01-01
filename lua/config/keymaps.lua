@@ -66,3 +66,33 @@ vim.keymap.set("n", "U", "<C-r>")
 --
 --vim.cmd("nmap k gk")
 --vim.cmd("nmap l gj")
+
+-- Escape and save changes.
+vim.keymap.set({ "s", "i", "n", "v" }, "<C-s>", "<esc>:w<cr>", { desc = "Exit insert mode and save changes." })
+
+-- Clear search with <esc>
+vim.keymap.set("n", "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+
+-- Floating terminal.
+vim.keymap.set("n", "<M-t>", function()
+  require("utils.float_term").float_term(nil, {})
+end, { desc = "Open terminal" })
+vim.keymap.set("t", "<M-t>", "<cmd>close<cr>", { desc = "Close terminal" })
+
+-- Word wrap-aware movement remaps
+keymap({ "n", "v", "o" }, "l", "v:count == 0 ? 'gj' : 'j'", { expr = true, desc = "Move down (word wrap aware)" })
+keymap({ "n", "v", "o" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, desc = "Move up (word wrap aware)" })
+
+-- Keeping the cursor centered.
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll downwards" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll upwards" })
+vim.keymap.set("n", "n", "nzzzv", { desc = "Next result" })
+vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous result" })
+
+-- Quitting.
+vim.keymap.set("n", "<leader>Q", "<cmd>qa<cr>", { desc = "Quit all" })
+
+-- Execute macro over visual region.
+vim.keymap.set("x", "@", function()
+  return ":norm @" .. vim.fn.getcharstr() .. "<cr>"
+end, { expr = true })
