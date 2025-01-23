@@ -96,3 +96,16 @@ vim.keymap.set("n", "<leader>Q", "<cmd>qa<cr>", { desc = "Quit all" })
 vim.keymap.set("x", "@", function()
   return ":norm @" .. vim.fn.getcharstr() .. "<cr>"
 end, { expr = true })
+
+-- CodeRunner
+vim.keymap.set("n", "<leader>rr", ":RunCode<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>rf", ":RunFile<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>rft", ":RunFile tab<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>rp", ":RunProject<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>rc", ":RunClose<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>crf", ":CRFiletype<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>crp", ":CRProjects<CR>", { noremap = true, silent = false })
+
+--Sniprun
+vim.api.nvim_set_keymap("v", "<leader>rs", "<Plug>SnipRun", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader>rs", "<Plug>SnipRun", { silent = true })
